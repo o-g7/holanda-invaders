@@ -59,8 +59,8 @@ const ALTURA_CANVAS = 675
         }
 
         class Tiro extends Sprite{
-            constructor(nave){
-                super(nave.centro.x , nave.centro.y , 25 , 50)
+            constructor(holandes){
+                super(holandes.centro.x , holandes.centro.y , 25 , 50)
                 this.velocidadeY = + 16
             }
             
@@ -77,7 +77,9 @@ let ctx = canvasEl.getContext('2d');
 ctx.fillStyle = "darkred"        
 let vidas = 3
 let pontos = 0
-let nave = new Sprite(0, 675, 100, 100)
+let imagemHolandes = new Image()
+imagemHolandes.src = 'imgs/nave.png'
+let holandes = new Sprite(0, 675, 100, 100, imagemNave)
 let tiros = []
 let inimigos = []
 inimigos.push(new Inimigo())
@@ -89,7 +91,7 @@ inimigos.push(new Inimigo())
             tiros.push(tiro)
         })
 
-        imagemNave.addEventListener('load', (evento) => {
+        imagemHolandes.addEventListener('load', (evento) => {
             recria()
         })
         canvasEl.addEventListener('mousemove', (evento) => {
@@ -100,7 +102,7 @@ inimigos.push(new Inimigo())
         })
         function recria() {
             ctx.clearRect(0, 0, 1350, 625)
-            nave.cria(ctx)
+            holandes.cria(ctx)
             for (let inimigo of inimigos) {
                 inimigo.cria(ctx)
             }
@@ -118,8 +120,8 @@ inimigos.push(new Inimigo())
         function verificasebateu() {
 
             for (let inimigo of inimigos) {
-                const atingiuNave = inimigo.batercom(nave)
-                if (atingiuNave) {
+                const atingiuHolandes = inimigo.batercom(holandes)
+                if (atingiuHolandes) {
                     inimigo.morrer()
                     vidas --
                     if(vidas<1){
