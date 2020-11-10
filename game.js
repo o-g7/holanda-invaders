@@ -1,5 +1,5 @@
-const LARGURA_CANVAS = 1350
-const ALTURA_CANVAS = 625
+const LARGURA_CANVAS = 675
+const ALTURA_CANVAS = 675
         class Sprite {
             constructor(x, y, largura, altura, imagem) {
                 this.x = x
@@ -74,13 +74,10 @@ const ALTURA_CANVAS = 625
         
 let canvasEl = document.querySelector('#jogo');
 let ctx = canvasEl.getContext('2d');
-
 ctx.fillStyle = "darkred"        
 let vidas = 3
 let pontos = 0
-let imagemNave = new Image()
-imagemNave.src = 'imgs/nave.png'
-let nave = new Sprite(0, 675, 100, 100, imagemNave)
+let nave = new Sprite(0, 675, 100, 100)
 let tiros = []
 let inimigos = []
 inimigos.push(new Inimigo())
