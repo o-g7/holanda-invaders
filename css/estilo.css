@@ -3,7 +3,7 @@ footer {
 }
 
 div#foot {
-    column-count: 2
+    column-count: 2;
 }
 
 div#foot p {
