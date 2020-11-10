@@ -1,9 +1,9 @@
 footer {
-    width: 100%; text-align: center; background-color: #262626; padding: 10px; color: white; margin-top: 10px; clear:both;
+    width: 100vw; text-align: center; background-color: #262626; padding: 10px; color: white; margin-top: 10px; clear:both;
 }
 
 div#foot {
-    column-count: 2;
+    column-count: 2; width: 100%;
 }
 
 div#foot p {
@@ -21,3 +21,4 @@ div#foot ul li a {
 div#foot ul {
     margin: 0; padding: 0; list-style: none; column-span: 1;
 }
+
