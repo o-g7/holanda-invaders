@@ -39,7 +39,7 @@ class Sprite {
 class Inimigo extends Sprite {
             constructor() {
                 super(1300, Math.random() * ALTURA_CANVAS, 100, 100,imagemInimigo)
-                this.velocidadeX = 5 * Math.random() + 3
+                this.velocidadeX = 8 * Math.random() + 3
             }
 
             andar() {
@@ -48,6 +48,7 @@ class Inimigo extends Sprite {
                 if (this.x <= 0) {
                     this.x = 1200
                     this.y = Math.random() * ALTURA_CANVAS
+                    passardefase()
                 }
             }
             morrer() {
@@ -60,6 +61,9 @@ class Inimigo extends Sprite {
 let canvasEl = document.querySelector('#jogo')
 let ctx = canvasEl.getContext('2d')
 let vidas = 3
+let inimigomorreu = 0
+let novafase = 3
+let novavelocidade = 5
 let imagemHolandes = new Image()
 imagemHolandes.src = "images/musicicon.png"
 let holandes = new Sprite(20,56,128,128,imagemHolandes)
@@ -102,6 +106,22 @@ function atualizar(){
         inimigo.andar(ctx)
     }
 }
+
+function passardefase(){
+    inimigomorreu++
+    if(novafase==inimigomorreu){
+        novafase = novafase + (inimigomorreu*2)
+        novavelocidade+=3
+        holandes.x+=225
+        inimigos.push(new Inimigo)
+        if(holandes.x>=LARGURA_CANVAS){
+            alert("VOCÊ GANHOU!")
+            window.location.reload()
+        }
+        recria()
+    }
+}
+
 function jogar(){
     recria()
     atualizar()

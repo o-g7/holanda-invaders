@@ -1,5 +1,5 @@
 nav {
-    height: 50px; background-color: #F2ECD8; width: 100%; 
+    height: 50px; background-color: #A69076; width: 100%; 
 }
 
 nav ul {
@@ -15,7 +15,7 @@ nav ul li img {
 }
 
 nav ul li a {
-    text-decoration: none; color: black; background-color: #F2ECD8; padding: 15px; display: inline-block; width: 110px;
+    text-decoration: none; color: black; background-color: #A69076; padding: 15px; display: inline-block; width: 110px;
 }   
 
 body {
@@ -23,7 +23,7 @@ body {
 }
 
 footer {
-    width: 100%; text-align: center; background-color: #F2ECD8; padding: 10px; color: black; margin-top: 10px; clear:both;
+    width: 100%; text-align: center; background-color: #A69076; padding: 10px 0 10px 0; color: black; margin-top: 10px; clear:both; position: absolute; bottom: 0;
 }
 
 #pose {
