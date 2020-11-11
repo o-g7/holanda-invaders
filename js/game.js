@@ -39,7 +39,7 @@ class Sprite {
 class Inimigo extends Sprite {
             constructor() {
                 super(1300, Math.random() * ALTURA_CANVAS, 100, 100,imagemInimigo)
-                this.velocidadeX = 3 * Math.random() + 3
+                this.velocidadeX = 5 * Math.random() + 3
             }
 
             andar() {
@@ -55,19 +55,6 @@ class Inimigo extends Sprite {
                 this.y = Math.random() * ALTURA_CANVAS
             }
 
-    }
-class Tiro extends Sprite{
-    constructor(holandes){
-            super(holandes.centro.x , holandes.centro.y , 25 , 50)
-            this.velocidadeX = + 16
-        }
-            
-    andar(){
-        this.x += this.velocidadeX
-        if(this.x>=LARGURA_CANVAS){
-            this.podesermorto = true
-            } 
-        }
     }
  
 let canvasEl = document.querySelector('#jogo')
