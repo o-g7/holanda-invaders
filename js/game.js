@@ -38,7 +38,7 @@ class Sprite {
 
 class Inimigo extends Sprite {
             constructor() {
-                super(1200, Math.random() * ALTURA_CANVAS, 100, 100,imagemInimigo)
+                super(1300, Math.random() * ALTURA_CANVAS, 100, 100,imagemInimigo)
                 this.velocidadeX = 3 * Math.random() + 3
             }
 
@@ -55,7 +55,7 @@ class Inimigo extends Sprite {
                 this.y = Math.random() * ALTURA_CANVAS
             }
 
-        }
+    }
 class Tiro extends Sprite{
     constructor(holandes){
             super(holandes.centro.x , holandes.centro.y , 25 , 50)
@@ -75,14 +75,13 @@ let ctx = canvasEl.getContext('2d')
 let vidas = 3
 let imagemHolandes = new Image()
 imagemHolandes.src = "images/musicicon.png"
-let holandes = new Sprite(50,433,128,128,imagemHolandes)
+let holandes = new Sprite(20,56,128,128,imagemHolandes)
 let imagemInimigo = new Image()
 imagemInimigo.src = "images/musicicon.png"
 let inimigos = []
 inimigos.push(new Inimigo())
 inimigos.push(new Inimigo())
 inimigos.push(new Inimigo())
-
 ctx.strokeStyle = "white"
 ctx.font = "30px Arial"
 ctx.strokeText(`Vidas : ${vidas}` , 100, 600 )
@@ -91,12 +90,15 @@ imagemHolandes.addEventListener('load', (evento) => {
     recria()
 })
 
-canvasEl.addEventListener('keydown', (evento) => { 
-    let tecla = evento.keyCode
-    if(tecla == 38)
-        holandes.y -= 433
-    else if(tecla == 39)
-        holandes.y += 433
+document.addEventListener('keydown',(evento) => {
+    if(evento.key == 'ArrowUp'){
+        if(holandes.y>128)
+            holandes.y -= 110
+    }
+    else if(evento.key == 'ArrowDown'){
+        if(holandes.y<ALTURA_CANVAS-228)
+            holandes.y += 110
+    }
     recria()
 })
 
@@ -112,8 +114,7 @@ function atualizar(){
     for(let inimigo of inimigos){
         inimigo.andar(ctx)
     }
-} 
-
+}
 function jogar(){
     recria()
     atualizar()
