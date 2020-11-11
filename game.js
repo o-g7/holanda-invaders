@@ -38,8 +38,8 @@ class Sprite {
 
 class Inimigo extends Sprite {
             constructor() {
-                super(1200, Math.random() * ALTURA_CANVAS, 100, 100)
-                this.velocidadex = 3 * Math.random() + 3
+                super(1200, Math.random() * ALTURA_CANVAS, 100, 100,imagemInimigo)
+                this.velocidadeX = 3 * Math.random() + 3
             }
 
             andar() {
@@ -69,23 +69,34 @@ class Tiro extends Sprite{
             } 
         }
     }
-
+ 
 let canvasEl = document.querySelector('#jogo')
 let ctx = canvasEl.getContext('2d')
+let vidas = 3
 let imagemHolandes = new Image()
 imagemHolandes.src = "images/musicicon.png"
-let holandes = new Sprite(50,56,128,128,imagemHolandes)
+let holandes = new Sprite(50,433,128,128,imagemHolandes)
+let imagemInimigo = new Image()
+imagemInimigo.src = "images/musicicon.png"
 let inimigos = []
 inimigos.push(new Inimigo())
 inimigos.push(new Inimigo())
 inimigos.push(new Inimigo())
 
+ctx.strokeStyle = "white"
+ctx.font = "30px Arial"
+ctx.strokeText(`Vidas : ${vidas}` , 100, 600 )
+
 imagemHolandes.addEventListener('load', (evento) => {
     recria()
 })
 
-canvasEl.addEventListener('mousemove', (evento) => {
-    holandes.y = evento.offsetY
+canvasEl.addEventListener('keydown', (evento) => { 
+    let tecla = evento.keyCode
+    if(tecla == 38)
+        holandes.y -= 433
+    else if(tecla == 39)
+        holandes.y += 433
     recria()
 })
 
@@ -106,6 +117,21 @@ function atualizar(){
 function jogar(){
     recria()
     atualizar()
+    verificasebateu()
 }
 
+function verificasebateu() {
+
+    for (let inimigo of inimigos) {
+        const atingiuHolandes = inimigo.batercom(holandes)
+        if (atingiuHolandes) {
+            inimigo.morrer()
+            vidas --
+            if(vidas<1){
+                alert("Game over!")
+                window.location.reload()
+            }
+       }
+    }
+}
 setInterval(jogar,33)
