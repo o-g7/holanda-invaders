@@ -38,8 +38,8 @@ class Sprite {
 
 class Inimigo extends Sprite {
             constructor() {
-                super(1300, Math.random() * ALTURA_CANVAS, 100, 100,imagemInimigo)
-                this.velocidadeX = 8 * Math.random() + 3
+                super(1300, Math.random() * (posição*128), 80, 80 ,imagemInimigo)
+                this.velocidadeX = 5 * Math.random() + 3
             }
 
             andar() {
@@ -63,19 +63,17 @@ let ctx = canvasEl.getContext('2d')
 let vidas = 3
 let inimigomorreu = 0
 let novafase = 3
-let novavelocidade = 5
+let posição
 let imagemHolandes = new Image()
-imagemHolandes.src = "images/musicicon.png"
-let holandes = new Sprite(20,56,128,128,imagemHolandes)
+imagemHolandes.src = "images/Barco.png"
+let holandes = new Sprite(20,128,100,100,imagemHolandes)
 let imagemInimigo = new Image()
-imagemInimigo.src = "images/musicicon.png"
+imagemInimigo.src = "images/Inimigo.png"
 let inimigos = []
 inimigos.push(new Inimigo())
 inimigos.push(new Inimigo())
 inimigos.push(new Inimigo())
-ctx.strokeStyle = "white"
-ctx.font = "30px Arial"
-ctx.strokeText(`Vidas : ${vidas}` , 100, 600 )
+
 
 imagemHolandes.addEventListener('load', (evento) => {
     recria()
@@ -84,11 +82,11 @@ imagemHolandes.addEventListener('load', (evento) => {
 document.addEventListener('keydown',(evento) => {
     if(evento.key == 'ArrowUp'){
         if(holandes.y>128)
-            holandes.y -= 110
+            holandes.y -= 128
     }
     else if(evento.key == 'ArrowDown'){
         if(holandes.y<ALTURA_CANVAS-228)
-            holandes.y += 110
+            holandes.y += 128
     }
     recria()
 })
@@ -99,6 +97,10 @@ function recria(){
     for (let inimigo of inimigos){
         inimigo.cria(ctx)
     }
+    posição = Math.random() * 5
+    ctx.strokeStyle = "#000000"
+    ctx.font = "30px Arial"
+    ctx.strokeText(`Vidas : ${vidas}` , 100, 100 )
 }
 
 function atualizar(){
@@ -111,10 +113,9 @@ function passardefase(){
     inimigomorreu++
     if(novafase==inimigomorreu){
         novafase = novafase + (inimigomorreu*2)
-        novavelocidade+=3
-        holandes.x+=225
+        holandes.x+=320
         inimigos.push(new Inimigo)
-        if(holandes.x>=LARGURA_CANVAS){
+        if(holandes.x>=1300){
             alert("VOCÊ GANHOU!")
             window.location.reload()
         }
