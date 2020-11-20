@@ -40,6 +40,12 @@ class Inimigo extends Sprite {
             constructor() {
                 super(1300, Math.random() * (posição*128), 80, 80 ,imagemInimigo)
                 this.velocidadeX = 5 * Math.random() + 3
+                if(this.y<100){
+                    this.y=128
+                }
+                else if(this.y>447){
+                    this.y = ALTURA_CANVAS-228
+                }
             }
 
             andar() {
@@ -48,12 +54,24 @@ class Inimigo extends Sprite {
                 if (this.x <= 0) {
                     this.x = 1200
                     this.y = Math.random() * ALTURA_CANVAS
+                    if(this.y<100){
+                        this.y=128
+                    }
+                    else if(this.y>447){
+                        this.y = ALTURA_CANVAS-228
+                    }
                     passardefase()
                 }
             }
             morrer() {
                 this.x = 1200
                 this.y = Math.random() * ALTURA_CANVAS
+                if(this.y<100){
+                    this.y=128
+                }
+                else if(this.y>447){
+                    this.y = ALTURA_CANVAS-228
+                }
             }
 
     }
@@ -70,6 +88,7 @@ let holandes = new Sprite(20,128,100,100,imagemHolandes)
 let imagemInimigo = new Image()
 imagemInimigo.src = "images/Inimigo.png"
 let inimigos = []
+var fundoImg = new Image();
 inimigos.push(new Inimigo())
 inimigos.push(new Inimigo())
 inimigos.push(new Inimigo())
@@ -93,6 +112,7 @@ document.addEventListener('keydown',(evento) => {
 
 function recria(){
     ctx.clearRect(0,0,1300,675)
+    fundo()
     holandes.cria(ctx)
     for (let inimigo of inimigos){
         inimigo.cria(ctx)
@@ -121,6 +141,11 @@ function passardefase(){
         }
         recria()
     }
+}
+
+function fundo(){
+    fundoImg.src = "../images/Background-Holanda.png";
+    ctx.drawImage(fundoImg, 0, 0);  
 }
 
 function jogar(){
