@@ -1,6 +1,5 @@
 const LARGURA_CANVAS = 1300
 const ALTURA_CANVAS = 675
-
 class Sprite {
     constructor(x, y, largura, altura, imagem) {
         this.x = x
@@ -118,9 +117,9 @@ function recria(){
         inimigo.cria(ctx)
     }
     posição = Math.random() * 5
-    ctx.strokeStyle = "#000000"
+    ctx.strokeStyle = "black"
     ctx.font = "30px Arial"
-    ctx.strokeText(`Vidas : ${vidas}` , 100, 100 )
+    ctx.strokeText(`Vidas : ${vidas}` , 100, 60)
 }
 
 function atualizar(){
