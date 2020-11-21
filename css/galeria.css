@@ -9,13 +9,14 @@ main {
 div.album {
     margin: 5px;
     float: left;
-    width: 180px;
+    width: 280px;
     position: relative;
     transition: all 750ms linear;
 }
 
 div.album:hover {
     transform: scale(1.5, 1.5);
+    z-index: 1;
 }
 
 div.album img {
@@ -26,10 +27,11 @@ div.album img {
 div.legenda {
     opacity: 0;
     position: absolute;
-    text-align: center;
     transition: all 1s linear;
-    text-shadow: 1px 1px yellow;
-    bottom: 0;
+    text-shadow: 1px 1px #F2A35E;
+    width: inherit;
+    text-align: center;
+    bottom: 15px;
 }
 
 div.album:hover div.legenda {
