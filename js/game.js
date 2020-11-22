@@ -37,7 +37,7 @@ class Sprite {
 
 class Inimigo extends Sprite {
             constructor() {
-                super(1300, Math.random() * (posição*128), 80, 80 ,imagemInimigo)
+                super(1300, posição, 80, 80 ,imagemInimigo)
                 this.velocidadeX = 5 * Math.random() + 3
                 if(this.y<100){
                     this.y=128
@@ -77,13 +77,14 @@ class Inimigo extends Sprite {
  
 let canvasEl = document.querySelector('#jogo')
 let ctx = canvasEl.getContext('2d')
-let vidas = 3
+let barradevidas = 1300
 let inimigomorreu = 0
 let novafase = 3
 let posição
+let tela=1
 let imagemHolandes = new Image()
 imagemHolandes.src = "images/Barco.png"
-let holandes = new Sprite(20,128,100,100,imagemHolandes)
+let holandes = new Sprite(128,128,100,100,imagemHolandes)
 let imagemInimigo = new Image()
 imagemInimigo.src = "images/Inimigo.png"
 let inimigos = []
@@ -109,6 +110,12 @@ document.addEventListener('keydown',(evento) => {
     recria()
 })
 
+function menu(){
+    fundo()
+    ctx.fillStyle = "black"
+    
+}
+
 function recria(){
     ctx.clearRect(0,0,1300,675)
     fundo()
@@ -116,10 +123,9 @@ function recria(){
     for (let inimigo of inimigos){
         inimigo.cria(ctx)
     }
-    posição = Math.random() * 5
-    ctx.strokeStyle = "black"
-    ctx.font = "30px Arial"
-    ctx.strokeText(`Vidas : ${vidas}` , 100, 60)
+    posição = Math.floor(Math.random() * 5) * 128
+    ctx.fillStyle = "#00ff00"
+    ctx.fillRect(0,0,barradevidas,100)
 }
 
 function atualizar(){
@@ -158,13 +164,21 @@ function verificasebateu() {
     for (let inimigo of inimigos) {
         const atingiuHolandes = inimigo.batercom(holandes)
         if (atingiuHolandes) {
-            inimigo.morrer()
-            vidas --
-            if(vidas<1){
+            inimigo.morrer() 
+            barradevidas -= 434
+            if(barradevidas<-434){
+                recria()
                 alert("Game over!")
                 window.location.reload()
             }
        }
     }
 }
-setInterval(jogar,33)
+setInterval(()=>{
+    if(tela){
+        jogar()
+    }
+    else{
+        menu()
+    }
+},33)
