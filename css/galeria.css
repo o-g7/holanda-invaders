@@ -38,7 +38,3 @@ div.legenda {
 div.album:hover div.legenda {
     opacity: 1;
 }
-
-footer {
-    position: static;
-}
