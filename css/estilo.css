@@ -23,6 +23,12 @@ nav ul li a:hover {
     color: #F2ECD8;
 }
 
+img#logo {
+    width: 160px; 
+    position: absolute; 
+    top: -20px;
+}
+
 body {
     margin: 0; padding: 0;
 }
