@@ -81,14 +81,14 @@ let barradevidas = 1300
 let inimigomorreu = 0
 let novafase = 3
 let posição
-let tela=1
 let imagemHolandes = new Image()
 imagemHolandes.src = "images/Barco.png"
 let holandes = new Sprite(128,128,100,100,imagemHolandes)
 let imagemInimigo = new Image()
 imagemInimigo.src = "images/Inimigo.png"
 let inimigos = []
-var fundoImg = new Image();
+var fundoImg = new Image()
+fundoImg.src = "../images/Background-Holanda.png";
 inimigos.push(new Inimigo())
 inimigos.push(new Inimigo())
 inimigos.push(new Inimigo())
@@ -110,15 +110,9 @@ document.addEventListener('keydown',(evento) => {
     recria()
 })
 
-function menu(){
-    fundo()
-    ctx.fillStyle = "black"
-    
-}
-
 function recria(){
     ctx.clearRect(0,0,1300,675)
-    fundo()
+    ctx.drawImage(fundoImg, 0, 0)
     holandes.cria(ctx)
     for (let inimigo of inimigos){
         inimigo.cria(ctx)
@@ -148,11 +142,6 @@ function passardefase(){
     }
 }
 
-function fundo(){
-    fundoImg.src = "../images/Background-Holanda.png";
-    ctx.drawImage(fundoImg, 0, 0);  
-}
-
 function jogar(){
     recria()
     atualizar()
@@ -175,10 +164,5 @@ function verificasebateu() {
     }
 }
 setInterval(()=>{
-    if(tela){
-        jogar()
-    }
-    else{
-        menu()
-    }
+    jogar()
 },33)
