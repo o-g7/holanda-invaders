@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <link rel="icon" href="images/boaticon.png">
         <link href="css/estilo.css" rel="stylesheet" type="text/css">
-        <link href="css/jogo.css" rel="stylesheet" type="text/css">
+        <link href="css/jogo.css" rel="stylesheet" media="screen and (max-width:1300px)"type="text/css">
         <link href="css/menu.css" rel="stylesheet" media="screen and (max-width:1020px)" type="text/css">
         <link rel="stylesheet" href="https://use.typekit.net/omv1lxl.css">
     </head>
@@ -13,14 +13,15 @@
         <header>
             <nav>
                 <ul>
-                    <li><a><img id="logo" src="images/logotipo2.png"></a><a></a></li>
-                    <li><a href="index.html">Apresentação</a></li>
+                    <span id="logotipo">
+                        <li id="first"><a href="index.html"><img id="logo" src="images/logotipo_big.png"></a><a></a></li>
+                        <li id="hover"><a href="index.html"><img id="logo" src="images/logotipo_pintado.png"></a><a></a></li>
+                    </span>
                     <li><a href="recife.html">Recife</a></li>
                     <li><a href="galeria.html">Galeria</a></li>
                     <li><a href="jogo.html">Jogo</a></li>
                     <li><a href="credito.html">Créditos</a></li>
                 </ul>
-                <img>
             </nav>
         </header>
         <canvas id="jogo" width="1300" height="675"></canvas>

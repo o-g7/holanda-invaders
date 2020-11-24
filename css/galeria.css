@@ -11,7 +11,7 @@ div.album {
     float: left;
     width: 280px;
     position: relative;
-    transition: all 750ms linear;
+    transition: all 600ms linear;
 }
 
 div.album:hover {
