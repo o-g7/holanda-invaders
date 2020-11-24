@@ -1,5 +1,5 @@
 nav {
-    height: 50px; background-color: #A69076; width: 100%; 
+    height: 50px; background-color: #A69076; width: 100%;
 }
 
 nav ul {
@@ -15,7 +15,7 @@ nav ul li img {
 }
 
 nav ul li a {
-    text-decoration: none; color: black; background-color: #A69076; padding: 15px; display: inline-block; width: 110px;
+    text-decoration: none; color: black; background-color: #A69076; padding: 11px 15px 0 15px; display: inline-block; width: 110px;
     transition: all 300ms ease;
 }
 
@@ -37,6 +37,26 @@ footer {
     width: 100%; text-align: center; background-color: #A69076; padding: 10px 0 10px 0; color: black; margin-top: 10px; clear:both; position: static; bottom: 0;
 }
 
-#pose {
-    position: absolute; right: 15px; bottom: 15px; width: 20px;
+p{
+    font-family: bree, Arial;
+    font-style: normal;
+    font-weight: 200;
+}
+
+h1{
+    font-family: bree, Arial;
+    font-style: normal;
+    font-weight: 700;
+}
+
+h2 {
+    font-family: bree, sans-serif;
+    font-style: normal;
+    font-weight: 600;
+}
+
+nav, footer p{
+    font-family: bree, sans-serif;
+    font-style: normal;
+    font-weight: 300;
 }
