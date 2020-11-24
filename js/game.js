@@ -39,38 +39,20 @@ class Inimigo extends Sprite {
             constructor() {
                 super(1300, posição, 80, 80 ,imagemInimigo)
                 this.velocidadeX = 5 * Math.random() + 3
-                if(this.y<100){
-                    this.y=128
-                }
-                else if(this.y>447){
-                    this.y = ALTURA_CANVAS-228
-                }
             }
 
             andar() {
                 this.x -= this.velocidadeX
 
-                if (this.x <= 0) {
+                if (this.x <= -80) {
                     this.x = 1200
-                    this.y = Math.random() * ALTURA_CANVAS
-                    if(this.y<100){
-                        this.y=128
-                    }
-                    else if(this.y>447){
-                        this.y = ALTURA_CANVAS-228
-                    }
+                    this.y = posição
                     passardefase()
                 }
             }
             morrer() {
                 this.x = 1200
-                this.y = Math.random() * ALTURA_CANVAS
-                if(this.y<100){
-                    this.y=128
-                }
-                else if(this.y>447){
-                    this.y = ALTURA_CANVAS-228
-                }
+                this.y = posição
             }
 
     }
@@ -117,7 +99,7 @@ function recria(){
     for (let inimigo of inimigos){
         inimigo.cria(ctx)
     }
-    posição = Math.floor(Math.random() * 5) * 128
+    posição = (1+Math.floor(Math.random() * 4)) * 128
     ctx.fillStyle = "#00ff00"
     ctx.fillRect(0,0,barradevidas,100)
 }
