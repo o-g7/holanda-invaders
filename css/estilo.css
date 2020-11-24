@@ -1,5 +1,5 @@
 nav {
-    height: 50px; background-color: #A69076; width: 100%; 
+    height: 50px; background-color: #A69076; width: 100%;
 }
 
 nav ul {
@@ -55,7 +55,7 @@ h2 {
     font-weight: 600;
 }
 
-nav{
+nav, footer p{
     font-family: bree, sans-serif;
     font-style: normal;
     font-weight: 300;
