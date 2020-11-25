@@ -25,3 +25,7 @@ div.album:hover {
 div.legenda {
     transition: all 0.5s linear;
 }
+
+iframe{
+    height: 450px;
+}
