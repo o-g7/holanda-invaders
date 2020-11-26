@@ -29,3 +29,13 @@ div.legenda {
 iframe{
     height: 350px;
 }
+
+div#criadoresf {
+    display: grid;
+    grid-template-rows: auto 1fr auto 1fr;
+    grid-template-columns: 1fr 1fr;
+}
+
+div#criadores {
+    display: none;
+}
