@@ -74,9 +74,9 @@ inimigos.push(new Inimigo())
 inimigos.push(new Inimigo())
 
 
-imagemHolandes.addEventListener('load', (evento) => {//Quando a página carregar já desenha o jogo
-    imagemInimigo.addEventListener('load', (evento) => {//Quando a página carregar já desenha o jogo
-        fundoImg.addEventListener('load', (evento) => {//Quando a página carregar já desenha o jogo
+imagemHolandes.addEventListener('load', (evento) => {//Carrega a imagem do protagonista antes do jogo, ou seja no carregamento da página
+    imagemInimigo.addEventListener('load', (evento) => {//Carrega a imagem do Português
+        fundoImg.addEventListener('load', (evento) => {//Carrega o fundo
             recria()
         })
     })
@@ -96,57 +96,58 @@ document.addEventListener('keydown',(evento) => {//Quando presionar uma tecla...
 
 function recria(){//Desenha o jogo
     ctx.clearRect(0,0,1300,675)//Limpa a tela
-    ctx.drawImage(fundoImg, 0, 0)//desenha o Backgroud
+    ctx.drawImage(fundoImg, 0, 0)//Desenha o Backgroud
     holandes.cria(ctx)
     for (let inimigo of inimigos){
-        inimigo.cria(ctx)//desenha o inimigo conforme ele anda
+        inimigo.cria(ctx)//Desenha o novo ponto do inimigo, que muda com o atualizar()
     }
     posição = (1+Math.floor(Math.random() * 4)) * 128//Atualiza a posição, pois assim quando o inimigo sair da tela ou morrer, tem uma nova altura
-    ctx.fillStyle = "#00ff00"
+    ctx.fillStyle = "#00ff00"//Cor da barra de vida 
     ctx.fillRect(0,0,barradevidas,100)
 }
 
-function atualizar(){
-    for(let inimigo of inimigos){
+function atualizar(){// Atualiza o andar do inimigo, ou seja qual a  próxima posição que ele vai aparecer no recria, muda o x e o recria desenha
+    for(let inimigo of inimigos){//Tira todos os inimigos do vetor automaticamente pra verificar
         inimigo.andar(ctx)
     }
 }
 
-function passardefase(){
-    inimigomorreu++
-    if(novafase==inimigomorreu){
+function passardefase(){//Serve para aproximar da praia , chegar no fim e ganhar, é chamada toda vez que um inimigo sai da tela pela esquerda
+    inimigomorreu++//O inimigo morreu
+    if(novafase==inimigomorreu){// Quando inimigos suficientes tiverem morrido pra passar de fase, muda o x do barcoo, aproxima da praia
         novafase = novafase + (inimigomorreu*2)
         holandes.x+=320
-        inimigos.push(new Inimigo)
+        inimigos.push(new Inimigo)//Mais um inimigo sempre que passa de fase
         if(holandes.x>=1300){
             alert("VOCÊ GANHOU!")
-            window.location.reload()
+            window.location.reload()//Recomeça a página, tipo um F5
         }
-        recria()
+        recria()//Recria pra você ir para frente
     }
 }
 
-function jogar(){
-    recria()
-    atualizar()
-    verificasebateu()
-}
+function verificasebateu() {//Verifica se teve colisão
 
-function verificasebateu() {
-
-    for (let inimigo of inimigos) {
-        const atingiuHolandes = inimigo.batercom(holandes)
-        if (atingiuHolandes) {
+    for (let inimigo of inimigos) {//Tira todos os inimigos pra verificar
+        const atingiuHolandes = inimigo.batercom(holandes)//Se os centro colidirem eles vão dar um valor constante do encontro de duas sprites...
+        if (atingiuHolandes) {//Se esse valor for verdadeiro, os inimigos morrem e a barra de vida diminui
             inimigo.morrer() 
             barradevidas -= 434
             if(barradevidas<-434){
                 recria()
-                alert("Game over!")
+                alert("Game over!")//Morreu
                 window.location.reload()
             }
        }
     }
 }
+
+function jogar(){//Uma função pra na hora de ser chamada , chamar todas de uma vez
+    recria()
+    atualizar()
+    verificasebateu()
+}
+
 setInterval(()=>{
     jogar()
-},33)
+},33)//Chama a função jogar de 33 em 33 milesegundos
