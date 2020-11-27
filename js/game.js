@@ -68,7 +68,7 @@ let imagemInimigo = new Image()//Imagem do inimigo
 imagemInimigo.src = "images/Inimigo.png"
 let inimigos = []//Um vetor de inimigos
 var fundoImg = new Image()//O background
-fundoImg.src = "../images/Background-Holanda.png";
+fundoImg.src = "images/Background-Holanda.png";
 inimigos.push(new Inimigo())//Coloca mais um inimigo no vetor
 inimigos.push(new Inimigo())
 inimigos.push(new Inimigo())
