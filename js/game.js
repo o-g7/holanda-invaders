@@ -1,3 +1,4 @@
+alert("Olá, você foi convocado para ser o novo membro da tropa dos Holandeses, você deve chegar a praia desviando dos portugueses, para isso use a  ⬆ e a ⬇, cada vez que você anda , mais vão aparecer , boa sorte!")
 const LARGURA_CANVAS = 1300
 const ALTURA_CANVAS = 675
 class Sprite {
@@ -45,13 +46,13 @@ class Inimigo extends Sprite {
                 this.x -= this.velocidadeX
 
                 if (this.x <= -80) {
-                    this.x = 1200
+                    this.x = 1300
                     this.y = posição
                     passardefase()
                 }
             }
             morrer() {
-                this.x = 1200
+                this.x = 1300
                 this.y = posição
             }
 
