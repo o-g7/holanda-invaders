@@ -75,7 +75,11 @@ inimigos.push(new Inimigo())
 
 
 imagemHolandes.addEventListener('load', (evento) => {//Quando a página carregar já desenha o jogo
-    recria()
+    imagemInimigo.addEventListener('load', (evento) => {//Quando a página carregar já desenha o jogo
+        fundoImg.addEventListener('load', (evento) => {//Quando a página carregar já desenha o jogo
+            recria()
+        })
+    })
 })
 
 document.addEventListener('keydown',(evento) => {//Quando presionar uma tecla...
