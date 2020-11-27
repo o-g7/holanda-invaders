@@ -1,4 +1,56 @@
 main{
     margin: 0 auto;
     width: 80%;
+    padding-top: 30px;
+    margin-bottom: 30px;
+}
+img#head{
+    height: 93.5vh;
+    width: 98.9vw;
+}
+
+div#ihead{
+    position: relative;
+}
+
+h1 {
+    position: absolute;
+    text-align: center;
+    top: 35%;
+    width: 100%;
+    text-shadow: 0 0 10px whitesmoke, 0 0 12px white;
+
+}
+
+img#seta{
+    width: 60px;
+    position: relative;
+    animation: mexendo .5s ease-in-out 0s infinite alternate;
+    left: 50%;
+    bottom: 15px;
+    display: flex;
+    z-index: 1;
+}
+
+@keyframes mexendo {
+    from { top: -90px; }
+    to   { top: -60px; }
+  }
+
+img.recife{
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    border: 3px solid #F2A35E;
+    border-radius: 10px;
+}
+
+p{
+    text-align: justify;
+    text-indent: 15px;
+}
+
+footer p{
+    text-align: center;
 }

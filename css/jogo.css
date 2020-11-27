@@ -3,5 +3,5 @@ canvas{
 }
 
 footer{
-    bottom: 0; position: absolute;
+    position: static;
 }

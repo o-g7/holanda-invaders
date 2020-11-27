@@ -9,6 +9,8 @@ img#primeira{
 main{
     margin: 0 auto;
     width: 80%;
+    padding-top: 30px;
+    margin-bottom: 30px;
 } 
 
 p.inicio,p.fim {
@@ -42,6 +44,41 @@ img{
 
 #pose {
     position: absolute; right: 15px; bottom: 15px; width: 20px;
+}
+
+#mhead{
+    position:relative;
+}
+
+#mapao{
+    width: 98.9vw;
+    height:93.15vh;
+}
+
+#logo-inicio{
+    display: flex;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 1;
+    position: absolute;
+    top: 15%;
+    left: 25%;
+}
+
+img#seta{
+    width: 60px;
+    position: relative;
+    animation: mexendo .5s ease-in-out 0s infinite alternate;
+    left: 50%;
+    bottom: 12px;
+    display: flex;
+    z-index: 1;
+}
+
+@keyframes mexendo {
+    from { top: -110px; }
+    to   { top: -80px; }
 }
 
 h2, h1 {
