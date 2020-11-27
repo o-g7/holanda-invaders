@@ -84,10 +84,12 @@ imagemHolandes.addEventListener('load', (evento) => {//Carrega a imagem do prota
 
 document.addEventListener('keydown',(evento) => {//Quando presionar uma tecla...
     if(evento.key == 'ArrowUp'){
+        evento.preventDefault()//Evita o rolamento da página pelas setas
         if(holandes.y>128)
             holandes.y -= 128//você anda pra cima se for abaixo que a barra de vida ...
     }
     else if(evento.key == 'ArrowDown'){
+        evento.preventDefault()
         if(holandes.y<ALTURA_CANVAS-228)// ou pra baixo se for maior que a tela menos os sprites e o movimento
             holandes.y += 128
     }
