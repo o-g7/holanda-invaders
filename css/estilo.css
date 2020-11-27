@@ -11,7 +11,8 @@ nav ul li {
 }
 
 nav ul li img {
-    width: 20px; top: -15px;
+    width: 20px; 
+    top: -16px;
 }
 
 nav ul li a {
@@ -28,15 +29,29 @@ nav ul span#logotipo li{
 }
 
 nav ul span#logotipo li#hover{
-    display: none;
+    position: absolute; 
+    visibility: hidden;
+    opacity: 0;
+    left: 0;
 }
 
 nav ul span#logotipo:hover li#first{
-    display: none;
+    visibility: hidden;
+}
+
+nav ul span#logotipo li#first img{
+    margin-bottom: 0;
+    padding-top: 0;
 }
 
 nav ul span#logotipo:hover li#hover{
-    display: inherit;
+    opacity: 1;
+    transition: opacity 300ms ease;
+    visibility: visible;
+}
+
+nav ul span#logotipo {
+    position: relative;
 }
 
 img#logo {
