@@ -71,18 +71,21 @@ p{
     font-family: bree, Arial;
     font-style: normal;
     font-weight: 200;
+    font-size: 20px;
 }
 
 h1{
     font-family: bree, Arial;
     font-style: normal;
     font-weight: 700;
+    font-size: 36px;
 }
 
 h2 {
     font-family: bree, sans-serif;
     font-style: normal;
     font-weight: 600;
+    font-size: 32px;
 }
 
 nav, footer p{
