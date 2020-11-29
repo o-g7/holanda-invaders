@@ -1,7 +1,9 @@
 canvas{
     width: 80%;
 }
-
-footer{
-    position: static;
+@media(max-width:1020px){
+    footer{
+        position: absolute;
+        bottom: 0;
+    }
 }
