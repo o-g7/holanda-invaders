@@ -1,5 +1,5 @@
 main {
-    margin: 15px 45px 45px 45px;
+    margin: 15px 50px 50px 45px;
     align-items: center;
     display: flex;
     flex-wrap: wrap;
@@ -40,4 +40,8 @@ div.legenda {
 
 div.album:hover div.legenda {
     opacity: 1;
+}
+
+br{
+    clear: right;
 }
