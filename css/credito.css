@@ -81,6 +81,30 @@ div#colaborador p{
     text-indent: 15px;
 }
 
+table {
+    margin: 0 auto;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+td, th {
+    padding: 3px 10px;
+    text-align: center;
+}
+
+thead {
+    background-color: #F2A35E;
+}
+
+thead {
+    border: 1px solid black;
+}
+
+tbody, td {
+    background-color: gainsboro;
+    border: 1px solid black;
+}
+
 @media (max-width:1024px) and (min-width:645px){
     div#criadoresf {
         display: grid;

@@ -67,7 +67,7 @@ footer {
     width: 100%; text-align: center; background-color: #A69076; padding: 10px 0 10px 0; color: black; margin-top: 10px; clear:both; 
 }
 
-p{
+p, table{
     font-family: bree, Arial;
     font-style: normal;
     font-weight: 200;

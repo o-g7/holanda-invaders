@@ -8,7 +8,8 @@ canvas{
 
 #voa{
     position: absolute; right: 15px; width: 20%; top: 50%;
-    opacity: 0.2;
+    opacity: 0.05;
+    transition: all 1s ease;
 }
 
 #voa:hover{
@@ -16,6 +17,12 @@ canvas{
 }
 
 footer{
-    position: absolute;
-    bottom: 0;
+    position: static;
+}
+
+@media(max-width:1150px){
+    footer{
+        position: absolute;
+        bottom: 0;
+    }
 }
