@@ -131,6 +131,9 @@ iframe{
     img#terceira{
         width: 230px;
     }
+    img#seta{
+        left: 47%;
+    }
 }
 
 @media (max-width:700px){
@@ -155,5 +158,14 @@ iframe{
     }
     img#terceira{
         width: 55%;
+    }
+    img#seta{
+        left: 45%;
+    }
+}
+
+@media (max-width:405px){
+    img#seta{
+        left: 40%;
     }
 }

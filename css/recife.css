@@ -66,6 +66,9 @@ footer p{
     img#head{
         height:75vh;
     }
+    img#seta{
+        left: 47%;
+    }
 }
 
 @media (max-width:700px){
@@ -75,10 +78,16 @@ footer p{
     h1{
         font-size: 60px;
     }
+    img#seta{
+        left: 45%;
+    }
 }
 
-@media (max-width:400px){
+@media (max-width:405px){
     h1{
         font-size: 45px;
+    }
+    img#seta{
+        left: 40%;
     }
 }
